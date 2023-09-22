@@ -32,6 +32,9 @@ class ProjectViewSet(generics.ListCreateAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
+    def get_queryset(self):
+        return super().get_queryset().filter(is_active=True)
+
 
 class ProjectImageViewSet(generics.ListCreateAPIView):
     queryset = ProjectImage.objects.all()
