@@ -1,6 +1,6 @@
 # blog/serializers.py
 from rest_framework import serializers
-from .models import Post, Comment, Tag, Media, Project, ProjectImage
+from .models import Post, Comment, Tag, Media, Project, ProjectImage, ProfessionalAchievement
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -35,5 +35,11 @@ class ProjectSerializer(serializers.ModelSerializer):
 
 class ProjectImageSerializer(serializers.ModelSerializer):
     class Meta:
-        models = ProjectImage
+        model = ProjectImage
+        fields = '__all__'
+
+
+class ProfessionalAchievementSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProfessionalAchievement
         fields = '__all__'
