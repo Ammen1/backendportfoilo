@@ -1,6 +1,6 @@
 from django.contrib import admin
 from . models import (
-    UserProfile,
+    # UserProfile,
     ContactProfile,
     Testimonial,
     Media,
@@ -17,9 +17,9 @@ from . models import (
 )
 
 
-@admin.register(UserProfile)
-class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user')
+# @admin.register(UserProfile)
+# class UserProfileAdmin(admin.ModelAdmin):
+#     list_display = ('id', 'user')
 
 
 # @admin.register(ProjectImage)

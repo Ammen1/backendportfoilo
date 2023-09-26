@@ -193,6 +193,7 @@ SIMPLE_JWT = {
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+AUTH_USER_MODEL = 'user.User'
 
 customColorPalette = [
     {"color": "hsl(4, 90%, 58%)", "label": "Red"},
