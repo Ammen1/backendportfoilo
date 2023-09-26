@@ -363,11 +363,11 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 
 JAZZMIN_SETTINGS = {
-    "site_title": "Django & React JWT Authentication ",
+    "site_title": "Amen-Abush Protofolio ",
     "welcome_sign": "Hey there...welcome back",
-    "site_header": "Django & React JWT Authentication ",
-    "site_brand": "Think | Create | Inspire",
-    "copyright": "www.desphixs.com",
+    "site_header": "Amen-Abush Protofolio",
+    "site_brand": "Protofolio | Abush ",
+    "copyright": "www.Abush.com",
 }
 
 
