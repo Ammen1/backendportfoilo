@@ -1,5 +1,5 @@
 from rest_framework.routers import DefaultRouter
-from .views import TagViewSet, CommentViewSet, PostViewSet, MediaViewSet, ProjectImageViewSet, ProjectViewSet, ProfessionalAchievementListCreate, ProfessionalAchievementDetail
+from .views import TagViewSet, CommentViewSet, PostViewSet, MediaViewSet, ProjectImageViewSet, ProjectViewSet, ProfessionalAchievementListCreate, ProfessionalAchievementDetail, PostsViewSet
 from django.urls import path
 
 
@@ -21,11 +21,9 @@ urlpatterns = [
     path('tags/', TagViewSet.as_view(), name='tags'),
     path('comments/', CommentViewSet.as_view(), name='comments'),
     path('posts/', PostViewSet.as_view(), name='posts'),
+    path('post/<int:pk>/', PostsViewSet.as_view(), name='post'),
     path('media/', MediaViewSet.as_view(), name='media'),
     path('projects/', ProjectViewSet.as_view(), name='projects'),
     path('projectimages/', ProjectImageViewSet.as_view(), name='projectimage'),
 
 ]
-
-
-# urlpatterns = router.urls

@@ -25,6 +25,14 @@ class PostViewSet(generics.ListCreateAPIView):
         return super().get_queryset().filter(is_active=True)
 
 
+class PostsViewSet(generics.RetrieveAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(is_active=True)
+
+
 class MediaViewSet(generics.ListCreateAPIView):
     queryset = Media.objects.all()
     serializer_class = MediaSerializer
