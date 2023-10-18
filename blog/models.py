@@ -194,3 +194,14 @@ class Certificate(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    customer_name = models.CharField(max_length=100)
+    rating = models.DecimalField(max_digits=3, decimal_places=2)
+    feedback = models.TextField()
+    img_url = models.ImageField(
+        blank=True, null=True, default="skills/inledrobot.jpg")
+
+    def __str__(self):
+        return self.customer_name

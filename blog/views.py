@@ -3,8 +3,8 @@ from rest_framework import generics
 from .models import ProfessionalAchievement
 from .serializers import ProfessionalAchievementSerializer
 from rest_framework import viewsets
-from .models import Post, Comment, Tag, Media, Project, ProjectImage
-from .serializers import PostSerializer, CommentSerializer, TagSerializer, MediaSerializer, ProjectImageSerializer, ProjectSerializer
+from .models import Post, Comment, Tag, Media, Project, ProjectImage, Review
+from .serializers import PostSerializer, CommentSerializer, TagSerializer, MediaSerializer, ProjectImageSerializer, ProjectSerializer, ReviewSerializer
 
 
 class TagViewSet(generics.ListCreateAPIView):
@@ -64,3 +64,13 @@ class ProfessionalAchievementListCreate(generics.ListCreateAPIView):
 class ProfessionalAchievementDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = ProfessionalAchievement.objects.all()
     serializer_class = ProfessionalAchievementSerializer
+
+
+class ReviewListCreateView(generics.ListCreateAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
+
+
+class ReviewRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer

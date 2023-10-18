@@ -13,6 +13,7 @@ from . models import (
     Post,
     Tag,
     Comment,
+    Review,
 
 )
 
@@ -62,10 +63,9 @@ class MediaAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
 
 
-# @admin.register(Portfolio)
-# class PortfolioAdmin(admin.ModelAdmin):
-#     list_display = ('id', 'name', 'is_active')
-#     readonly_fields = ('slug',)
+@admin.register(Review)
+class PortfolioAdmin(admin.ModelAdmin):
+    list_display = ('id', 'customer_name', 'rating')
 
 
 @admin.register(Post)
