@@ -1,6 +1,6 @@
 # blog/serializers.py
 from rest_framework import serializers
-from .models import Post, Comment, Tag, Media, Project, ProjectImage, ProfessionalAchievement, Review
+from .models import Post, Comment, Tag, Media, Project, ProjectImage, ProfessionalAchievement, Review, ContactProfile
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -12,6 +12,12 @@ class TagSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
+        fields = '__all__'
+
+
+class ContactProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactProfile
         fields = '__all__'
 
 

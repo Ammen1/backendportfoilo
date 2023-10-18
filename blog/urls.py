@@ -1,5 +1,5 @@
 from rest_framework.routers import DefaultRouter
-from .views import TagViewSet, CommentViewSet, PostViewSet, MediaViewSet, ProjectImageViewSet, ProjectViewSet, ProfessionalAchievementListCreate, ProfessionalAchievementDetail, PostsViewSet, ReviewListCreateView, ReviewRetrieveUpdateDestroyView
+from .views import TagViewSet, CommentViewSet, PostViewSet, MediaViewSet, ProjectImageViewSet, ProjectViewSet, ProfessionalAchievementListCreate, ProfessionalAchievementDetail, PostsViewSet, ReviewListCreateView, ReviewRetrieveUpdateDestroyView, ContactViewSet
 from django.urls import path
 
 
@@ -28,5 +28,6 @@ urlpatterns = [
     path('reviews/', ReviewListCreateView.as_view(), name='review-list'),
     path('reviews/<int:pk>/', ReviewRetrieveUpdateDestroyView.as_view(),
          name='review-detail'),
+    path("contact/", ContactViewSet.as_view(), name='contact'),
 
 ]
