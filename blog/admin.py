@@ -50,7 +50,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(ContactProfile)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('id', 'timestamp', 'name',)
+    list_display = ('id', 'name', 'email', 'timestamp', )
 
 
 @admin.register(Testimonial)
