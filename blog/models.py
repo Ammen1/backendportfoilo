@@ -1,7 +1,6 @@
 from django.db import models
 from user.models import User
 from django.template.defaultfilters import slugify
-from ckeditor.fields import RichTextField
 from django.utils.translation import gettext_lazy as _
 
 
@@ -15,14 +14,14 @@ class Post(models.Model):
         verbose_name = 'Blog'
         ordering = ["timestamp"]
 
-    timestamp = models.DateTimeField(auto_now_add=True)
+   
     author = models.CharField(max_length=200, blank=True, null=True)
     name = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
-    body = RichTextField(blank=True, null=True)
     slug = models.SlugField(null=True, blank=True)
     image = models.ImageField(blank=True, null=True, upload_to="blog")
     is_active = models.BooleanField(default=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -37,8 +36,8 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    author = models.CharField(max_length=200, blank=True, null=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -51,7 +50,6 @@ class Media(models.Model):
         ordering = ["name"]
 
     image = models.ImageField(blank=True, null=True, upload_to="media")
-    url = models.URLField(blank=True, null=True)
     name = models.CharField(max_length=200, blank=True, null=True)
     is_image = models.BooleanField(default=True)
 
@@ -72,8 +70,7 @@ class Project(models.Model):
         ordering = ["name"]
     date = models.DateTimeField(blank=True, null=True)
     name = models.CharField(max_length=200, blank=True, null=True)
-    description = models.CharField(max_length=500, blank=True, null=True)
-    body = RichTextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
     slug = models.SlugField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
@@ -104,8 +101,7 @@ class ProjectImage(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True)
 
-    # def __str__(self):
-    #     return f"Image for {self.project.alt_text}"
+
 
 
 class ContactProfile(models.Model):
@@ -197,11 +193,10 @@ class Certificate(models.Model):
 
 
 class Review(models.Model):
-    customer_name = models.CharField(max_length=100)
+    author = models.CharField(max_length=200, blank=True, null=True)
     rating = models.DecimalField(max_digits=3, decimal_places=2)
     feedback = models.TextField()
-    img_url = models.ImageField(
-        blank=True, null=True, default="skills/inledrobot.jpg")
+
 
     def __str__(self):
         return self.customer_name

@@ -12,21 +12,21 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'email')
 
 
-class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
-    @classmethod
-    def get_token(cls, user):
-        token = super().get_token(user)
+# class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+#     @classmethod
+#     def get_token(cls, user):
+#         token = super().get_token(user)
 
-        # These are claims, you can add custom claims
-        token['full_name'] = user.profile.full_name
-        token['username'] = user.username
-        token['email'] = user.email
-        token['bio'] = user.profile.bio
-        token['image'] = str(user.profile.image)
-        token['cv'] = str(user.profile.cv)
-        token['verified'] = user.profile.verified
-        # ...
-        return token
+#         # These are claims, you can add custom claims
+#         token['full_name'] = user.profile.full_name
+#         token['username'] = user.username
+#         token['email'] = user.email
+#         token['bio'] = user.profile.bio
+#         token['image'] = str(user.profile.image)
+#         token['cv'] = str(user.profile.cv)
+#         token['verified'] = user.profile.verified
+#         # ...
+#         return token
 
 
 class RegisterSerializer(serializers.ModelSerializer):

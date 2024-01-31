@@ -41,19 +41,19 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'rest_framework',
-    'ckeditor',
+    # 'ckeditor',
     'blog',
     'user',
 
     # Third Party
-    'import_export',
-    'crispy_forms',
-    'mathfilters',
-    'django.contrib.humanize',
-    'ckeditor_uploader',
-    'django_ckeditor_5',
-    'taggit',
-    'rest_framework_simplejwt.token_blacklist',
+    # 'import_export',
+    # 'crispy_forms',
+    # 'mathfilters',
+    # 'django.contrib.humanize',
+    # 'ckeditor_uploader',
+    # 'django_ckeditor_5',
+    # 'taggit',
+    # 'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
 
 ]

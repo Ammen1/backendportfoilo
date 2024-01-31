@@ -1,11 +1,8 @@
 from django.contrib import admin
 from . models import (
-    # UserProfile,
     ContactProfile,
     Testimonial,
     Media,
-    # # Portfolio,
-    # Blog,
     Certificate,
     Skill,
     Project,
@@ -18,14 +15,8 @@ from . models import (
 )
 
 
-# @admin.register(UserProfile)
-# class UserProfileAdmin(admin.ModelAdmin):
-#     list_display = ('id', 'user')
-
-
-# @admin.register(ProjectImage)
 class ProjectImageInline(admin.TabularInline):
-    # list_display = ('id', 'image', 'alt_text')
+    list_display = ('id', 'image', 'alt_text')
     model = ProjectImage
 
 
@@ -65,7 +56,7 @@ class MediaAdmin(admin.ModelAdmin):
 
 @admin.register(Review)
 class PortfolioAdmin(admin.ModelAdmin):
-    list_display = ('id', 'customer_name', 'rating')
+    list_display = ('id',  'rating')
 
 
 @admin.register(Post)
